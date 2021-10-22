@@ -14,5 +14,6 @@ namespace TicketGo.Models
         public string Tranportasi { get; set; }
         public int Stock { get; set; }
         public decimal Harga { get; set; }
+        public Ticket Tiket {get; set;}
     }
 }
