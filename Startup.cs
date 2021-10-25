@@ -9,8 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TicketGo.Data;
+using TicketGo.Models;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.AspNetCore.Identity;
 
 namespace TicketGo
 {
@@ -35,7 +37,12 @@ namespace TicketGo
             var connectionString = Configuration.GetConnectionString("MovieApp");
             var serverVersion = new MariaDbServerVersion(new Version(10, 6, 4));
             option.UseMySql(connectionString, serverVersion);
-});
+            });
+            services
+             .AddDefaultIdentity<Pengguna>()
+             .AddEntityFrameworkStores<TicketDbContext>()
+             .AddDefaultTokenProviders();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +62,7 @@ namespace TicketGo
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
