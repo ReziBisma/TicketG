@@ -9,14 +9,15 @@ namespace TicketGo.Models
     public class Pembelian
     {
         public int Id { get; set; }
+        public string Name {get; set; }
         public string TicketId { get; set; }
-        public Ticket Tiket {get; set;}
+        public virtual Ticket Tiket {get; set;}
         public int TransaksiId {get; set;}
-        public Transaksi transaksi {get; set;}
+        public virtual Transaksi transaksi {get; set;}
         public int Jumlah {get; set;}
         public int Harga {get; set;}
 
-        public List<Transaksi> Transaksi { get; set; }
+        public virtual List<Transaksi> Transaksi { get; set; }
         public List<Ticket> Ticket {get; set;}
     }
 }

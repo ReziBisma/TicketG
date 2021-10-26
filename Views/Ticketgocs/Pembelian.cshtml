@@ -1,23 +1,37 @@
-@model Ticket
+@model TicketGo.Models.Transaksi
 
 @{
     ViewData["Title"] = "Detail Ticket";
 }
 
-<h2>@Html.DisplayFor(modelitem => Model.tempatwisata)</h2>
-<table class= "table">
-    <thead>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Tranportasi)</td>
-            <td>@Html.DisplayFor(modelitem => Model.Tranportasi)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Waktu)</td>
-            <td>@Html.DisplayFor(modelitem => Model.Waktu)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Harga)</td>
-            <td>@Html.DisplayFor(modelitem => Model.Harga)</td>
-        </tr>
-    </thead>
-</table>
+<h1>Details</h1>
+
+<div>
+    <h4>TodoList</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PenggunaId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PenggunaId)
+        </dd>
+    </dl>
+    <h4>Items</h4>
+    <ul>
+    @foreach (var item in Model.Pembelian)
+    {
+        <li>@item.Name</li>
+    }
+    </ul>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
