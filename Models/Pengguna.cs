@@ -10,6 +10,9 @@ namespace TicketGo.Models
 {
     public class Pengguna: IdentityUser
     {
+        public string Name {get; set;}
+        public string Avatar { get; set; }
+
         public virtual List<Transaksi> Transaksi { get; set; }
     }
 }
