@@ -13,6 +13,6 @@ namespace TicketGo.Models
         public string Name {get; set;}
         public string Avatar { get; set; }
 
-        public virtual List<Transaksi> Transaksi { get; set; }
+        public virtual List<Transaksi> Transaksis { get; set; }
     }
 }

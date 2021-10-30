@@ -11,6 +11,6 @@ namespace TicketGo.Models
         public string Name {get; set;}
         public string PenggunaId { get; set; }
         public virtual Pengguna Pengguna { get; set; }
-        public virtual List<Pembelian> Pembelian { get; set; }   
+        public virtual List<Pembelian> Pembelians { get; set; }   
     }
 }

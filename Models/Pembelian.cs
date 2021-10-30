@@ -16,8 +16,6 @@ namespace TicketGo.Models
         public virtual Transaksi transaksi {get; set;}
         public int Jumlah {get; set;}
         public int Harga {get; set;}
-
-        public virtual List<Transaksi> Transaksi { get; set; }
-        public List<Ticket> Ticket {get; set;}
+        public virtual List<Ticket> Ticket {get; set;}
     }
 }

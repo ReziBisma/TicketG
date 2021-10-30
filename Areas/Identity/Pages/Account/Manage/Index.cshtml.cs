@@ -55,6 +55,10 @@ namespace TicketGo.Areas.Identity.Pages.Account.Manage
             {
                 PhoneNumber = phoneNumber
             };
+            if(user.Avatar is null)
+            {
+                user.Avatar = "";
+            }
             Avatar = Path.Combine("/Profile/Avatar", user.Avatar);
         }
 
@@ -96,15 +100,15 @@ namespace TicketGo.Areas.Identity.Pages.Account.Manage
             }
 
             var avatarDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Avatars");
-            Directory.CreateDirectory(avatarDirectory);
+            
 
             var extension = Path.GetExtension(Input.AvatarFile?.FileName)?.ToLowerInvariant();
             var permittedType = new string[] { ".png", ".jpg" };
 
-            if (string.IsNullOrEmpty(extension) || !permittedType.Contains(extension))
-            {
-                StatusMessage = "Unsupported file type";
-                return RedirectToPage();
+           if (string.IsNullOrEmpty(extension) || !permittedType.Contains(extension))
+           {
+               StatusMessage = "Unsupported file type";
+               return RedirectToPage();
             }
 
             var fileName = $"{user.Id}{extension}";
