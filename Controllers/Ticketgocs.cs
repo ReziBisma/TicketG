@@ -59,5 +59,18 @@ namespace TicketGo.Controllers
         }
         return View(Detail);
         }
+        public IActionResult Pembayaran(int? Id)
+        {
+            if (Id == null)
+        {
+            return NotFound();
+        }
+        var Detail = _context.Tickets.Find(Id);
+        if (Detail == null)
+        {
+            return NotFound();
+        }
+        return View(Detail);
+        }
     }
 }
