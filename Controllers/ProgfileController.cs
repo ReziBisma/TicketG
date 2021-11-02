@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Logging;
 using TicketGo.Models;
 
-namespace MvcTokoOnline.Controllers
+namespace TicketGo.Controllers
 {
     [Route("[controller]/[action]")]
     public class ProfileController : Controller
