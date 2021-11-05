@@ -13,6 +13,7 @@ namespace TicketGo.Models
         public DateTime Waktu { get; set; }
         public string Tranportasi { get; set; }
         public int Stock { get; set; }
+        public int Jumlah {get; set; }
         public decimal Harga { get; set; }
     }
 }

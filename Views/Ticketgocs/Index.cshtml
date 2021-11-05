@@ -35,8 +35,8 @@ ViewData["Title"] = "Ticket App";
                    <td>@Html.DisplayFor(modelitem => item.Tranportasi)</td>
                    <td>@Html.DisplayFor(modelitem => item.Harga)</td>
                    <td>
-                       <a asp-controller="Ticketgocs" asp-action="Pembelian" asp-route-id=@item.Id>Detail Ticket</a> |
-                       <a asp-controller="Ticketgocs" asp-action="Pembayaran" asp-route-id=@item.Id>Pembayaran</a>
+                       <a asp-controller="Ticketgocs" asp-action="Detail" asp-route-id=@item.Id>Detail Ticket</a> |
+                       <a asp-controller="Ticketgocs" asp-action="Pembelian" asp-route-id=@item.Id>Pembayaran</a>
                    </td>
                </tr>
             }

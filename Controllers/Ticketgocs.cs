@@ -46,7 +46,7 @@ namespace TicketGo.Controllers
      {
        return "From [HttpPost]Index: filter on " + searchString;
      }
-     public IActionResult Pembelian(int? Id)
+     public IActionResult Detail(int? Id)
         {
             if (Id == null)
         {
@@ -59,7 +59,7 @@ namespace TicketGo.Controllers
         }
         return View(Detail);
         }
-        public IActionResult Pembayaran(int? Id)
+        public IActionResult Pembelian(int? Id)
         {
             if (Id == null)
         {
@@ -71,6 +71,15 @@ namespace TicketGo.Controllers
             return NotFound();
         }
         return View(Detail);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BeliConfirmed(int id)
+        {
+            var pembelian = _context.Tickets.Find(id);
+            _context.Tickets.Remove(pembelian);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Pesan");
         }
     }
 }

@@ -1,27 +1,25 @@
 @model TicketGo.Models.Ticket
 
 @{
-    ViewData["Title"] = "Detail Ticket";
+    ViewData["Title"] = "Ticket Pembelian Detail";
 }
 
 <h2>@Html.DisplayFor(modelitem => Model.tempatwisata)</h2>
 <table class= "table">
     <tbody>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.Tranportasi)</td>
-            <td>@Html.DisplayFor(modelitem => Model.Tranportasi)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Waktu)</td>
-            <td>@Html.DisplayFor(modelitem => Model.Waktu)</td>
-        </tr>
-        <tr>
             <td>@Html.DisplayNameFor(model => model.Harga)</td>
             <td>@Html.DisplayFor(modelitem => Model.Harga)</td>
         </tr>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.Stock)</td>
-            <td>@Html.DisplayFor(modelitem => Model.Stock)</td>
+            <td><label asp-for="Jumlah" class="control-label"></label>
+                <input asp-for="Jumlah" class="form-control" />
+            <span asp-validation-for="Stock" class="text-danger"></span></td>
         </tr>
     </tbody>
 </table>
+<p>Apakah benar anda ingin membeli ticket ini</p>
+<form asp-controller="Ticketgocs" asp-action="BeliConfirmed" asp-route-id =@Model.Id>
+    <button type="btn btn-danger"type="submit">Beli</button>
+    <a class= "btn btn-primary" asp-controller="Ticketgocs" asp-action="Index">Back</a>
+</form>
