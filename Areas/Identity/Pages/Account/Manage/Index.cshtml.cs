@@ -59,7 +59,7 @@ namespace TicketGo.Areas.Identity.Pages.Account.Manage
             {
                 user.Avatar = "";
             }
-            Avatar = Path.Combine("/Profile/Avatar", user.Avatar);
+            Avatar = Path.Combine("/Profile/Avatar", user.Avatar ?? "");
         }
 
         public async Task<IActionResult> OnGetAsync()

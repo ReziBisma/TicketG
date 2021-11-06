@@ -77,9 +77,12 @@ namespace TicketGo.Controllers
         public async Task<IActionResult> BeliConfirmed(int id)
         {
             var pembelian = _context.Tickets.Find(id);
-            _context.Tickets.Remove(pembelian);
             await _context.SaveChangesAsync();
             return RedirectToAction("Pesan");
+        }
+        public IActionResult Pesan()
+        {
+            return View();
         }
     }
 }
