@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "Ticket Pembelian Detail";
 }
-
+<!DOCTYPE HTML>
+<html>
+<head>
 <h2>@Html.DisplayFor(modelitem => Model.tempatwisata)</h2>
 <table class= "table">
     <tbody>
@@ -23,3 +25,9 @@
     <button type="btn btn-danger"type="submit">Beli</button>
     <a class= "btn btn-primary" asp-controller="Ticketgocs" asp-action="Index">Back</a>
 </form>
+<style>
+    body {
+    background-color: #33cccc;}
+    </style>
+</head>
+</html>

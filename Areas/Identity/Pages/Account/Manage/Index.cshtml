@@ -6,6 +6,9 @@
 }
 
 <h4>@ViewData["Title"]</h4>
+<!DOCTYPE HTML>
+<html>
+<head>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <div class="row">
     <div class="col-md-6">
@@ -32,6 +35,12 @@
         <img src="@Model.Avatar" class="w-100" alt="">
     </div>
 </div>
+<style>
+    body {
+    background-color: #33cccc;}
+</style>
+</head>
+</html>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
