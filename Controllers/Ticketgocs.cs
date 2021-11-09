@@ -1,20 +1,21 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using TicketGo.Data;
 using TicketGo.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 
 
 namespace TicketGo.Controllers
 {
+    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class Ticketgocs : Controller
     {
         public TicketDbContext _context;

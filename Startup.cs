@@ -33,13 +33,14 @@ namespace TicketGo
         {
             services.AddDbContext<TicketDbContext>(options => 
             {
-            var connectionString = Configuration.GetConnectionString("MovieApp");
+            var connectionString = Configuration.GetConnectionString("TicketGO");
             var serverVersion = new MariaDbServerVersion(new Version(10, 6, 4));
             options.UseMySql(connectionString, serverVersion);
             options.UseLazyLoadingProxies();
             });
             services
              .AddDefaultIdentity<Pengguna>()
+             .AddRoles<IdentityRole>()
              .AddEntityFrameworkStores<TicketDbContext>()
              .AddDefaultTokenProviders();
             services.AddRazorPages();

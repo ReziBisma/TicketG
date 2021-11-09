@@ -228,3 +228,12 @@ Thumbs.db
 
 # Visual Studio Code Files
 .vs/
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Avatars
+Avatars/
