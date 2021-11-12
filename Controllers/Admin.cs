@@ -27,5 +27,18 @@ namespace TicketGo.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(
+        [Bind("Id, tempatwisata,Waktu,Tranportasi,Stock,Harga")] Ticket ticket)
+        {
+            if (ModelState.IsValid)
+        {
+        _context.Add(ticket);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index");
+        }
+        return View(ticket);
+        }
     }
 }

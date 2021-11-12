@@ -14,8 +14,6 @@ using TicketGo.Models;
 
 namespace TicketGo.Controllers
 {
-    [Authorize]
-    [Authorize(Roles = "Admin")]
     public class Ticketgocs : Controller
     {
         public TicketDbContext _context;
