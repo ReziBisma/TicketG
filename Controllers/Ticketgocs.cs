@@ -10,8 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using TicketGo.Data;
 using TicketGo.Models;
 
-
-
 namespace TicketGo.Controllers
 {
     public class Ticketgocs : Controller
@@ -83,5 +81,30 @@ namespace TicketGo.Controllers
         {
             return View();
         }
+        [Authorize]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind("Id,tempatwisata,Waktu,Tranportasi,Stock, Harga")]Ticket ticket)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Tickets.Add(ticket);
+                    _context.SaveChanges();
+                }
+                catch (DbUpdateException)
+                {
+                    throw;
+                }
+                return RedirectToAction("Index");
+            }
+            return View(ticket);
+        }
+    }   
     }
-}
